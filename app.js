@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv/config')
+const cors = require('cors');
+require('dotenv/config');
+
 
 
 const app = express();
@@ -10,16 +12,23 @@ const aboutRoute = require('./routes/about')
 const plantRoute = require('./routes/plant')
 
 // middleware
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(cors())
 
 app.use('/about', aboutRoute)
 app.use('/plant', plantRoute)
 
 // connect to db
-mongoose.connect(
-    process.env.DB_CONNECTION,
-    {useNewUrlParser: true},
-    () => console.log("connected to db")
-);
+try {
+    mongoose.connect(
+        process.env.DB_CONNECTION,
+        {useNewUrlParser: true},
+        () => console.log("connected to db")
+    );
+} catch(err) {
+    res.json({message: err})
+}
 
 // Listen
 app.listen(4000);
