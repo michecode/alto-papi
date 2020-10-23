@@ -5,74 +5,46 @@ const PlantSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    name: {
-        type: String,
+    quick: {
+        name: String,
+        scientificName: String,
+        lifespan: String,
+        classification: String,
+        zones: String,
+        indoor: Boolean,
+        outdoor: Boolean,
+        difficulty: String,
+        growthSpeed: String,
+        altNames: Array,
         required: true,
     },
-    lifespan: {
-        type: String,
-        required: true,
-    },
-    classification: {
-        type: String,
-        required: true,
-    },
-    zones: {
-        type: String,
-        required: true,
-    },
-    indoor: {
-        type: Boolean,
-        required: true,
-    },
-    outdoor: {
-        type: Boolean,
-        required: true,
-    },
-    difficulty: {
-        type: String,
-        required: true,
-    },
-    altNames: Array,
     bio: {
         type: String,
         required: true,
         default: "hiiiiiii",
     },
-    light: {
-        type: String,
+    basic: {
+        light: String,
+        watering: String,
+        fertilizer: String,
+        toxicity: String,
         required: true,
     },
-    watering: {
-        type: String,
+    environment: {
+        humidity: String,
+        soil: String,
+        temperature: String,
+        pests: String,
         required: true,
     },
-    humidity: {
-        type: String,
+    grooming: {
+        pruning: String,
+        repotting: String,
+        propagation: String,
         required: true,
     },
-    soil: {
-        type: String,
-        required: true,
-    },
-    temperature: {
-        type: String,
-        required: true,
-    },
-    fertilizer: {
-        type: String,
-        required: true,
-    },
-    toxicity: {
-        type: String,
-        required: true,
-    },
-    notes: {
-        Type: String,
-    },
-    commonIssues: {
-        type: Array,
-    }
+    notes: String,
+    commonIssues: Array,
 })
 
 module.exports = mongoose.model('Plants', PlantSchema);

@@ -8,7 +8,6 @@ require('dotenv/config');
 const app = express();
 
 // import routes
-const aboutRoute = require('./routes/about')
 const plantRoute = require('./routes/plant')
 
 // middleware
@@ -16,7 +15,6 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cors())
 
-app.use('/about', aboutRoute)
 app.use('/plant', plantRoute)
 
 // connect to db
