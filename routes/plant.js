@@ -28,14 +28,35 @@ router.post('/', async (req,res) => {
     const plant = new Plant({
         _id: req.body._id,
         name: req.body.name,
+        botanicalName: req.body.botanicalName,
+        lifespan: req.body.lifespan,
+        classification: req.body.classification,
+        zones: req.body.zones,
+        indoor: req.body.indoor,
+        outdoor: req.body.outdoor,
+        difficulty: req.body.difficulty,
+        growthSpeed: req.body.growthSpeed,
         altNames: req.body.altNames,
         bio: req.body.bio,
+        light: req.body.light,
         watering: req.body.watering,
+        misting: req.body.misting,
+        fertilizer: req.body.fertilizer,
+        toxicity: req.body.toxicity,
+        humidity: req.body.humidity,
         soil: req.body.soil,
+        soilPH: req.body.soilPH,
+        temperature: req.body.temperature,
+        pests: req.body.pests,
+        pruning: req.body.pruning,
+        repotting: req.body.repotting,
+        propagation: req.body.propagation,
+        notes: req.body.notes,
+        commonIssues: req.body.commonIssues
     });
 
     try {
-    const savedPlant = await plant.save();
+        const savedPlant = await plant.save();
     res.json(savedPlant);
     } catch(err) {
         res.json({message: err})
