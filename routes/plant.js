@@ -18,6 +18,7 @@ router.get('/:plantId', async (req,res) => {
     try {
     const plant =  await Plant.findById(req.params.plantId)
     res.json(plant)
+    console.log("get request for " + plant.name)
     } catch(err) {
         res.json({message: err})
     }
