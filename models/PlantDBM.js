@@ -45,4 +45,5 @@ const PlantSchema = mongoose.Schema({
     commonIssues: [IssueSchema],
 })
 
+// Goes to "plants" collection in DB
 module.exports = mongoose.model('Plants', PlantSchema);

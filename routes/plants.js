@@ -1,7 +1,7 @@
 const express = require('express');
-const { update } = require('../models/plant');
+const { update } = require('../models/PlantDBM');
 const router = express.Router();
-const Plant = require('../models/plant')
+const Plant = require('../models/PlantDBM')
 
 // gets all plants
 router.get('/', async (req,res) => {
@@ -65,7 +65,7 @@ router.post('/', async (req,res) => {
 })
 
 // update plant
-router.patch('/plant/:plantId', async (req,res) => {
+router.patch('/plants/:plantId', async (req,res) => {
     const Plant = new Plant({
         title: req.body.name,
         altNames: req.body.altNames,
@@ -82,7 +82,7 @@ router.patch('/plant/:plantId', async (req,res) => {
 })
 
 // delete plant
-router.delete('/plant/:plantId', async (req,res) => {
+router.delete('/plants/:plantId', async (req,res) => {
     try {
         const removedPlant = await Plant.remove({_id: req.params.plantId})
         res.json(removedPlant)
