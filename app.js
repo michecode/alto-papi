@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv/config');
 
 
@@ -9,16 +10,17 @@ require('dotenv/config');
 const app = express();
 
 // import routes
-const plantRoute = require('./routes/plants')
-const testRoute = require('./routes/testing')
+const plantRoute = require('./routes/plants');
+const testRoute = require('./routes/testing');
 
 // middleware
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
-app.use(cors())
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(cors());
+app.use(helmet());
 
-app.use('/plants', plantRoute)
-app.use('/test', testRoute)
+app.use('/plants', plantRoute);
+app.use('/test', testRoute);
 
 router.get('/', async (req,res) => {
     res.send("you shouldn't being seeing me!!! :3")
@@ -30,7 +32,7 @@ mongoose.connect(
     {useNewUrlParser: true}
 )
 .then(() => console.log('Connected to DB'))
-.catch(err => console.log(err))
+.catch(err => console.log(err));
 
 // Listen
 app.listen(4000);
