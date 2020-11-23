@@ -2,14 +2,15 @@ const express = require('express');
 const { update } = require('../models/PlantDBM');
 const router = express.Router();
 const winston = require('winston');
-const Plant = require('../models/PlantDBM')
+const Plant = require('../models/PlantDBM');
+const LibraryPlant = require('../models/LibraryPlantDBM');
 
 // gets all plants
 router.get('/', async (req,res) => {
     try{
-        const plants = await Plant.find();
+        const plants = await LibraryPlant.find();
         res.json(plants)
-        logger.info("All Plants", {timestamp: Date.now()})
+        logger.info("All Plants (Library Load)", {timestamp: Date.now()})
     }catch(err) {
         res.json({message: err})
     }

@@ -14,7 +14,6 @@ const PlantSchema = mongoose.Schema({
     // BASICS/INFOS
     name: String,
     botanicalName: String,
-    lifespan: String,
     classification: String,
     zones: String,
     tempRange: String,
@@ -26,13 +25,11 @@ const PlantSchema = mongoose.Schema({
     // BASIC CARE
     light: String,
     watering: String,
-    misting: String,
     fertilizer: String,
     toxicity: String,
     // ENVIRONMENT
     humidity: String,
     soil: String,
-    soilPH: String,
     temperature: String,
     pests: String,
     // GROOMING
